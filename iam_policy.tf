@@ -6,18 +6,23 @@ resource "aws_iam_policy" "Vault_ec2_iam_policy" {
   policy = <<EOF
 {
   "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "*"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
+    "Statement": [
+        {
+            "Action": [
+                "ssmmessages:CreateControlChannel",
+                "ssmmessages:CreateDataChannel",
+                "ssmmessages:OpenControlChannel",
+                "ssmmessages:OpenDataChannel",
+                "ssm:UpdateInstanceInformation"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
 }
 EOF
 }
+
 
 resource "aws_iam_policy_attachment" "test-attach" {
   name = "Attach to ec2 vault server"
