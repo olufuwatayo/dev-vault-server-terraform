@@ -1,24 +1,15 @@
 # Vault dev server
 
-This script sets up a Vault dev server in aws and creates a user with access to read and write secrets to it
-## Installation
+This script sets up a Vault dev server in Vagrant and creates a user with access to read and write secrets to it.
+## Installation 
 
-Ensure you have terraform  and AWS CLI and setup
+Ensure you have Vagrant installed
 ```bash
-brew install terraform
-brew install awscli
-aws configure
-```
-Setup aws cli ssm using this https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-macos
-## Usage
+https://www.vagrantup.com/downloads.html
+vagrant up
+vagrant ssh
+tail -f logfile.txt
 
-```python
-terraform init
-terraform plan
-terraform apply 
-
-aws ssm start-session \
-    --target instance_id 
 ```
 
 ## Contributing
